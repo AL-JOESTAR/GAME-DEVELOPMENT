@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdddlljsuxsva"]
+
+[ext_resource type="Script" uid="uid://c2ly1mnov6vx" path="res://script/dialoges_1.gd" id="1_gs2p7"]
+[ext_resource type="Texture2D" uid="uid://bedfainmwoy6w" path="res://assests/collection/chatbox.png" id="2_0eaao"]
+
+[node name="dialoges1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gs2p7")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 248.0
+offset_bottom = 130.0
+texture = ExtResource("2_0eaao")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 186.0
+offset_bottom = 32.0
+theme_override_colors/default_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
+text = "name
+"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 36.0
+offset_right = 239.0
+offset_bottom = 103.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Text"
+
+[node name="Timer" type="Timer" parent="."]

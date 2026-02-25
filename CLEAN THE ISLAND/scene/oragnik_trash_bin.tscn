@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvs2qk7cepqkr"]
+
+[ext_resource type="Script" uid="uid://b2k341av0crf5" path="res://script/oragnik_trash_bin.gd" id="1_r4j2j"]
+[ext_resource type="Texture2D" uid="uid://qjfw7wtyp4ti" path="res://assests/collection/komposter.png" id="2_pbmsf"]
+[ext_resource type="Script" uid="uid://b1rxattl235mj" path="res://script/pupuk.gd" id="3_pbmsf"]
+[ext_resource type="Texture2D" uid="uid://c1ihhph280sct" path="res://assests/collection/pupuk.png" id="4_6pu36"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r4j2j"]
+radius = 21.377558
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_umrx2"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bll6l"]
+
+[node name="OragnikTrashBin" type="Area2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_r4j2j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -2)
+shape = SubResource("CircleShape2D_r4j2j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -3)
+texture = ExtResource("2_pbmsf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -2)
+shape = SubResource("CapsuleShape2D_umrx2")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CompostTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="pupuk" type="Area2D" parent="."]
+script = ExtResource("3_pbmsf")
+
+[node name="Sprite2D" type="Sprite2D" parent="pupuk"]
+visible = false
+texture = ExtResource("4_6pu36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pupuk"]
+shape = SubResource("CircleShape2D_bll6l")
+disabled = true
+
+[connection signal="timeout" from="CompostTimer" to="." method="_on_compost_timer_timeout"]

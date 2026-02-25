@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://da70im5dnlduu"]
+
+[ext_resource type="Script" uid="uid://bs5fl3b1upgq5" path="res://script/kaleng_q.gd" id="1_sr6qv"]
+[ext_resource type="Texture2D" uid="uid://dcy4nyoa1j4gs" path="res://assests/collection/kaleng.png" id="1_xwgdj"]
+[ext_resource type="Script" uid="uid://dq5ge5s2x2g0r" path="res://script/quiz_2.gd" id="2_sr6qv"]
+[ext_resource type="Texture2D" uid="uid://bedfainmwoy6w" path="res://assests/collection/chatbox.png" id="3_kc3j8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6na8d"]
+radius = 21.095022
+
+[node name="kalengQ" type="Node2D"]
+script = ExtResource("1_sr6qv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xwgdj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6na8d")
+
+[node name="quiz2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -47.0
+offset_top = -91.0
+offset_right = -7.0
+offset_bottom = -51.0
+script = ExtResource("2_sr6qv")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="quiz2"]
+layout_mode = 0
+offset_right = 109.0
+offset_bottom = 68.0
+texture = ExtResource("3_kc3j8")
+
+[node name="QuestionLabel" type="Label" parent="quiz2/NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 201.0
+offset_bottom = 81.0
+scale = Vector2(0.5, 0.5)
+text = "Kaleng bekas sebaiknya dikelola dengan cara ?"
+horizontal_alignment = 3
+autowrap_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="quiz2/NinePatchRect"]
+layout_mode = 0
+offset_left = 2.9999998
+offset_top = 42.999996
+offset_right = 253.0
+offset_bottom = 83.0
+scale = Vector2(0.4, 0.4)
+
+[node name="A" type="Button" parent="quiz2/NinePatchRect/HBoxContainer"]
+layout_mode = 2
+text = "Dibuang ke sungai"
+
+[node name="B" type="Button" parent="quiz2/NinePatchRect/HBoxContainer"]
+layout_mode = 2
+text = "Daur Ulang"
+
+[node name="ResultLabel" type="Label" parent="quiz2/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://16x7k1mbgkia"]
+
+[ext_resource type="Texture2D" uid="uid://c1im0012nix4n" path="res://assests/collection/tongsampahijo.png" id="1_7quw0"]
+[ext_resource type="Script" uid="uid://dptgml5hsag7r" path="res://level/level4/script/trash_bin_4.gd" id="1_eqdnb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bcded"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uom4s"]
+
+[node name="TrashBin4" type="Area2D"]
+script = ExtResource("1_eqdnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bcded")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7quw0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_uom4s")

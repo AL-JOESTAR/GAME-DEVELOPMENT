@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bicnnml4dqygb"]
+
+[ext_resource type="Script" uid="uid://c7nhhihue5n67" path="res://level/level4/script/pelastik_4.gd" id="1_jsxop"]
+[ext_resource type="Texture2D" uid="uid://dr2odm7p35n80" path="res://assests/collection/kantongkresekpixel.png" id="1_lkk80"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jsxop"]
+
+[node name="pelastik4" type="Node2D"]
+script = ExtResource("1_jsxop")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lkk80")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jsxop")

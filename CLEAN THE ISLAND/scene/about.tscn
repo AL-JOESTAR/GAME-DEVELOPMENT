@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5wn0rclesee8"]
+
+[ext_resource type="Script" uid="uid://c0y7knji08bjo" path="res://script/about.gd" id="1_382yk"]
+[ext_resource type="Texture2D" uid="uid://bedfainmwoy6w" path="res://assests/collection/chatbox.png" id="2_y8gt7"]
+[ext_resource type="FontFile" uid="uid://bebxqioa7akei" path="res://assests/collection/Born2bSportyV10.ttf" id="3_cnakb"]
+
+[node name="About" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_382yk")
+d_file = "res://dialogue/About.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(576.00006, 328.25)
+scale = Vector2(4.4960938, 6.6718745)
+texture = ExtResource("2_y8gt7")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 55.0
+offset_right = 240.66667
+offset_bottom = 71.666664
+scale = Vector2(3, 3)
+theme_override_fonts/normal_font = ExtResource("3_cnakb")
+theme_override_fonts/bold_font = ExtResource("3_cnakb")
+theme_override_fonts/bold_italics_font = ExtResource("3_cnakb")
+theme_override_fonts/italics_font = ExtResource("3_cnakb")
+theme_override_fonts/mono_font = ExtResource("3_cnakb")
+text = "Name
+"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 137.0
+offset_right = 584.5
+offset_bottom = 339.5
+scale = Vector2(2, 2)
+theme_override_fonts/normal_font = ExtResource("3_cnakb")
+theme_override_fonts/bold_font = ExtResource("3_cnakb")
+theme_override_fonts/bold_italics_font = ExtResource("3_cnakb")
+theme_override_fonts/italics_font = ExtResource("3_cnakb")
+theme_override_fonts/mono_font = ExtResource("3_cnakb")
+text = "Text
+"
+
+[node name="Button" type="Button" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 547.0
+offset_right = 747.0
+offset_bottom = 613.0
+text = "Back
+"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="NinePatchRect/Button" to="." method="_on_button_pressed"]

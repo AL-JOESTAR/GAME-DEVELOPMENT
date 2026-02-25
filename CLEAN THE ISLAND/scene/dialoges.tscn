@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://djx3u6gt23n55"]
+
+[ext_resource type="Script" uid="uid://b7y1gq3il7o5r" path="res://script/dialoges.gd" id="1_h3j3h"]
+[ext_resource type="Texture2D" uid="uid://bedfainmwoy6w" path="res://assests/collection/chatbox.png" id="2_h3j3h"]
+
+[node name="dialoges" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_h3j3h")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -10.0
+offset_right = 516.0
+offset_bottom = 239.0
+texture = ExtResource("2_h3j3h")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 30.0
+offset_right = 300.5
+offset_bottom = 56.5
+scale = Vector2(2, 2)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Name :"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 96.0
+offset_right = 269.0
+offset_bottom = 161.0
+scale = Vector2(2, 2)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Text"
+
+[node name="Timer" type="Timer" parent="."]

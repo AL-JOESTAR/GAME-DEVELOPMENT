@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvbk8spwqeyvl"]
+
+[ext_resource type="Script" uid="uid://dctb7x2h2erse" path="res://script/botol.gd" id="1_7x2rr"]
+[ext_resource type="Texture2D" uid="uid://p5p8u2yuqw47" path="res://assests/collection/botollaca.png" id="2_tvtyw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hi7tf"]
+radius = 4.0
+height = 16.0
+
+[node name="botol" type="Node2D"]
+script = ExtResource("1_7x2rr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8.5)
+scale = Vector2(0.82, 0.89)
+texture = ExtResource("2_tvtyw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_hi7tf")

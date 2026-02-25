@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItemType" load_steps=3 format=3 uid="uid://odu4y33wewya"]
+
+[ext_resource type="Script" uid="uid://co0hfn3ckgr7j" path="res://addons/Inventory/InventoryItemType.gd" id="1_6wrx1"]
+[ext_resource type="Texture2D" uid="uid://dr2odm7p35n80" path="res://assests/collection/kantongkresekpixel.png" id="2_jgeap"]
+
+[resource]
+script = ExtResource("1_6wrx1")
+name = "plastik"
+description = "anorganik"
+texture = ExtResource("2_jgeap")
+max_stack_size = 5
+metadata/_custom_type_script = "uid://co0hfn3ckgr7j"

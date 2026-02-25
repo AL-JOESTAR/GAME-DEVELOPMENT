@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg4v4sbo146q4"]
+
+[ext_resource type="Script" uid="uid://k03nle55te2d" path="res://script/dialoge_3.gd" id="1_2j31t"]
+[ext_resource type="Texture2D" uid="uid://bedfainmwoy6w" path="res://assests/collection/chatbox.png" id="1_saeyi"]
+[ext_resource type="FontFile" uid="uid://bebxqioa7akei" path="res://assests/collection/Born2bSportyV10.ttf" id="3_lg3m4"]
+
+[node name="dialoge3" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2j31t")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 951.0
+offset_bottom = 297.0
+texture = ExtResource("1_saeyi")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 42.5
+scale = Vector2(2, 2)
+theme_override_fonts/normal_font = ExtResource("3_lg3m4")
+text = "Name"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 72.0
+offset_right = 471.5
+offset_bottom = 173.0
+scale = Vector2(2, 2)
+theme_override_fonts/normal_font = ExtResource("3_lg3m4")
+text = "Text"
+
+[node name="Timer" type="Timer" parent="."]

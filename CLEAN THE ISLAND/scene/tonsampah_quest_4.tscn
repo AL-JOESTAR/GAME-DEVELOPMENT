@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp3in5ra322a5"]
+
+[ext_resource type="Script" uid="uid://cv4ekw47cv0wq" path="res://script/tonsampah_quest_4.gd" id="1_iidi5"]
+[ext_resource type="Texture2D" uid="uid://c1im0012nix4n" path="res://assests/collection/tongsampahijo.png" id="2_o73n3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0gaqe"]
+radius = 27.018513
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gphy7"]
+
+[node name="tonsampah_quest_4" type="Area2D"]
+script = ExtResource("1_iidi5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o73n3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0gaqe")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_gphy7")

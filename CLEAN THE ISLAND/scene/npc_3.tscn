@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://4nb5s2okulkf"]
+
+[ext_resource type="Texture2D" uid="uid://bo5nqk1f5eaqj" path="res://assests/collection/Generic Male NPCs.png" id="1_8ppi4"]
+[ext_resource type="Script" uid="uid://w7imnh6y41e3" path="res://script/npc_3.gd" id="1_41kyn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xvn2"]
+atlas = ExtResource("1_8ppi4")
+region = Rect2(320, 0, 80, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41kyn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xvn2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_41kyn"]
+radius = 13.0
+height = 52.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ur23w"]
+radius = 72.73238
+
+[node name="npc3" type="CharacterBody2D"]
+script = ExtResource("1_41kyn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_41kyn")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 6)
+shape = SubResource("CapsuleShape2D_41kyn")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_ur23w")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

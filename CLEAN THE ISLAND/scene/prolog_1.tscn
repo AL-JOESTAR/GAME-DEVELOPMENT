@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh3xudue78twt"]
+
+[ext_resource type="Script" uid="uid://dxut0p0mfw00h" path="res://script/prolog_1.gd" id="1_3rdtl"]
+[ext_resource type="Texture2D" uid="uid://bedfainmwoy6w" path="res://assests/collection/chatbox.png" id="1_l2avl"]
+[ext_resource type="FontFile" uid="uid://bebxqioa7akei" path="res://assests/collection/Born2bSportyV10.ttf" id="3_4t3s2"]
+[ext_resource type="AudioStream" uid="uid://b4w56nm1ckcds" path="res://assests/collection/typing-keyboard-asmr-356116.mp3" id="4_hihq0"]
+
+[node name="Prolog1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3rdtl")
+d_file = "res://dialogue/prolog.json"
+next_scene_path = "uid://cybm08r0owix0"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(575.75, 453.75)
+scale = Vector2(4.49414, 4.057291)
+texture = ExtResource("1_l2avl")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 283.0
+offset_right = 235.0
+offset_bottom = 300.0
+scale = Vector2(3, 3)
+theme_override_fonts/normal_font = ExtResource("3_4t3s2")
+theme_override_fonts/bold_font = ExtResource("3_4t3s2")
+theme_override_fonts/bold_italics_font = ExtResource("3_4t3s2")
+theme_override_fonts/italics_font = ExtResource("3_4t3s2")
+theme_override_fonts/mono_font = ExtResource("3_4t3s2")
+text = "Name
+"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 341.0
+offset_right = 465.99997
+offset_bottom = 454.2
+scale = Vector2(2.5, 2.5)
+theme_override_fonts/normal_font = ExtResource("3_4t3s2")
+theme_override_fonts/bold_font = ExtResource("3_4t3s2")
+theme_override_fonts/bold_italics_font = ExtResource("3_4t3s2")
+theme_override_fonts/italics_font = ExtResource("3_4t3s2")
+theme_override_fonts/mono_font = ExtResource("3_4t3s2")
+text = "Text
+"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hihq0")
+volume_db = 24.0
+autoplay = true

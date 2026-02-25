@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://telxyji7krst"]
+
+[ext_resource type="Script" uid="uid://6p5gyvxpkwh8" path="res://script/siti.gd" id="1_wcklt"]
+[ext_resource type="Texture2D" uid="uid://bdw6chvjgahro" path="res://assests/collection/Generic Female NPCs.png" id="2_ri03o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v756x"]
+atlas = ExtResource("2_ri03o")
+region = Rect2(320, 480, 80, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_siekt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v756x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hikto"]
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ka8j"]
+radius = 22.36068
+
+[node name="siti" type="CharacterBody2D"]
+script = ExtResource("1_wcklt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -6)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_siekt")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hikto")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_2ka8j")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

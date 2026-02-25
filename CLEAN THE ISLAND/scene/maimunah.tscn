@@ -1,0 +1,154 @@
+[gd_scene load_steps=19 format=3 uid="uid://3m3wjf5pu6o4"]
+
+[ext_resource type="Texture2D" uid="uid://bdw6chvjgahro" path="res://assests/collection/Generic Female NPCs.png" id="1_kjtw2"]
+[ext_resource type="Script" uid="uid://c32eqgcdtyinb" path="res://script/maimunah.gd" id="1_rdq5o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdq5o"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(80, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35c0t"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(0, 240, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r565u"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(80, 240, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooddr"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(160, 240, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8pev"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(0, 360, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6wue"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(80, 360, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c5od"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(160, 360, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc4qf"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(0, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30bso"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(80, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emsjo"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(160, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5c4h"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(0, 120, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n4ha"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(80, 120, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmyy5"]
+atlas = ExtResource("1_kjtw2")
+region = Rect2(160, 120, 80, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdq5o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdq5o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35c0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r565u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooddr")
+}],
+"loop": true,
+"name": &"walk_e",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8pev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6wue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c5od")
+}],
+"loop": true,
+"name": &"walk_n",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc4qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30bso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emsjo")
+}],
+"loop": true,
+"name": &"walk_s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5c4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n4ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmyy5")
+}],
+"loop": true,
+"name": &"walk_w",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_35c0t"]
+radius = 13.0
+height = 52.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r565u"]
+radius = 72.73238
+
+[node name="Maimunah" type="CharacterBody2D"]
+script = ExtResource("1_rdq5o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -6)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_rdq5o")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 6)
+shape = SubResource("CapsuleShape2D_35c0t")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_r565u")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

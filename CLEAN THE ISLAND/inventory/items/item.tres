@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://c5ade1hgmuqsr"]
+
+[ext_resource type="Script" uid="uid://csxt1enrwdbvu" path="res://inventory/inventory_item.gd" id="1_6c0ac"]
+[ext_resource type="Texture2D" uid="uid://dr2odm7p35n80" path="res://assests/collection/kantongkresekpixel.png" id="2_tj3m0"]
+
+[resource]
+script = ExtResource("1_6c0ac")
+name = "Plastik"
+texture = ExtResource("2_tj3m0")
+metadata/_custom_type_script = "uid://csxt1enrwdbvu"

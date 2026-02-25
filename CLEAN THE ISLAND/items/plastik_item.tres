@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://c56ljo0ahb2l0"]
+
+[ext_resource type="Script" uid="uid://b0xi1bovqwtce" path="res://addons/Inventory/InventoryItem.gd" id="1_kf2y8"]
+[ext_resource type="Resource" uid="uid://odu4y33wewya" path="res://items/plastik.tres" id="1_waqeb"]
+
+[resource]
+script = ExtResource("1_kf2y8")
+item_type = ExtResource("1_waqeb")
+metadata/_custom_type_script = "uid://b0xi1bovqwtce"

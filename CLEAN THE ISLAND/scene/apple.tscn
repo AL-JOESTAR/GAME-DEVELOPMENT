@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://cck1isaybbgg6"]
+
+[ext_resource type="Script" uid="uid://bq2vh5mwau8wo" path="res://script/apple.gd" id="1_mw2ef"]
+[ext_resource type="Texture2D" uid="uid://cgsapqo8fny7m" path="res://assests/collection/apple.png" id="1_pdq0d"]
+[ext_resource type="Texture2D" uid="uid://bedfainmwoy6w" path="res://assests/collection/chatbox.png" id="2_fcuoq"]
+[ext_resource type="Script" uid="uid://cj0cuucotx5jr" path="res://script/quiz_1_2.gd" id="3_h1wfa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mw2ef"]
+radius = 21.095022
+
+[node name="apple" type="Node2D"]
+script = ExtResource("1_mw2ef")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pdq0d")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mw2ef")
+
+[node name="quiz1_2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -62.0
+offset_top = -98.0
+offset_right = -22.0
+offset_bottom = -58.0
+script = ExtResource("3_h1wfa")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="quiz1_2"]
+layout_mode = 0
+offset_right = 126.0
+offset_bottom = 77.0
+texture = ExtResource("2_fcuoq")
+
+[node name="QuestionLabel" type="Label" parent="quiz1_2/NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 233.0
+offset_bottom = 81.0
+scale = Vector2(0.5, 0.5)
+text = "Sisa apel yang sudah dimakan termasuk jenis sampah"
+horizontal_alignment = 3
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="quiz1_2/NinePatchRect"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 47.0
+offset_right = 178.99998
+offset_bottom = 87.0
+scale = Vector2(0.6, 0.6)
+
+[node name="A" type="Button" parent="quiz1_2/NinePatchRect/HBoxContainer"]
+layout_mode = 2
+text = "Organik"
+
+[node name="B" type="Button" parent="quiz1_2/NinePatchRect/HBoxContainer"]
+layout_mode = 2
+text = "Anorganik"
+
+[node name="ResultLabel" type="Label" parent="quiz1_2/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

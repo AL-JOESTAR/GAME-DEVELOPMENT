@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://hm8rr0vdhksu"]
+
+[ext_resource type="Script" uid="uid://dvjvh7x6w7ee2" path="res://script/pelastik.gd" id="1_2laus"]
+[ext_resource type="Texture2D" uid="uid://dr2odm7p35n80" path="res://assests/collection/kantongkresekpixel.png" id="2_xhbjq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mry0f"]
+radius = 12.0
+
+[node name="pelastik" type="Node2D"]
+script = ExtResource("1_2laus")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xhbjq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_mry0f")

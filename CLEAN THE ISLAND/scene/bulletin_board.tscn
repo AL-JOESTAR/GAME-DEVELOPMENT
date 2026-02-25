@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://n40p4mgante1"]
+
+[ext_resource type="Script" uid="uid://ti5xyuuxm46l" path="res://script/bulletin_board.gd" id="1_fopwd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fopwd"]
+radius = 38.052597
+
+[node name="Bulletin_board" type="Area2D"]
+position = Vector2(22, 22)
+script = ExtResource("1_fopwd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fopwd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

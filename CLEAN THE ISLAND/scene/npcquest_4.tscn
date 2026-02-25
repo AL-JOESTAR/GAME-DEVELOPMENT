@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bntb0rs1agbuq"]
+
+[ext_resource type="Texture2D" uid="uid://bo5nqk1f5eaqj" path="res://assests/collection/Generic Male NPCs.png" id="1_f1tsx"]
+[ext_resource type="Script" uid="uid://bverye6dccxmd" path="res://script/npcquest_4.gd" id="1_valf3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_valf3"]
+atlas = ExtResource("1_f1tsx")
+region = Rect2(320, 480, 80, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srpry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_valf3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_valf3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xftbp"]
+radius = 60.00833
+
+[node name="npcquest4" type="CharacterBody2D"]
+script = ExtResource("1_valf3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_srpry")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_valf3")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_xftbp")
+
+[node name="Timer2" type="Timer" parent="."]
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

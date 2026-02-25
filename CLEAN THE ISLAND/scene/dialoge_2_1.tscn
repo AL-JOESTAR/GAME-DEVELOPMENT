@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh1dq5n24bf4n"]
+
+[ext_resource type="Script" uid="uid://bkdxm011k7q8b" path="res://script/dialoge_2_1.gd" id="1_50d3u"]
+[ext_resource type="Texture2D" uid="uid://bedfainmwoy6w" path="res://assests/collection/chatbox.png" id="2_xxp2d"]
+
+[node name="dialoge2_1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_50d3u")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 123.0
+offset_bottom = 87.0
+texture = ExtResource("2_xxp2d")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 118.0
+offset_bottom = 29.0
+text = "Name"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 27.0
+offset_right = 111.0
+offset_bottom = 78.0
+text = "Text"
+
+[node name="Timer" type="Timer" parent="."]

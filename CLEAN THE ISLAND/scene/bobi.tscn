@@ -1,0 +1,153 @@
+[gd_scene load_steps=20 format=3 uid="uid://rpol5xn0b2d7"]
+
+[ext_resource type="Script" uid="uid://okf3mkbfhmdj" path="res://script/bobi.gd" id="1_lfuft"]
+[ext_resource type="Texture2D" uid="uid://bo5nqk1f5eaqj" path="res://assests/collection/Generic Male NPCs.png" id="2_ms1hb"]
+[ext_resource type="Texture2D" uid="uid://bslnthq5ofoh0" path="res://assests/collection/Generic Male NPCs A.png" id="3_63sap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anyhf"]
+atlas = ExtResource("2_ms1hb")
+region = Rect2(80, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l255e"]
+atlas = ExtResource("2_ms1hb")
+region = Rect2(0, 240, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms4d0"]
+atlas = ExtResource("2_ms1hb")
+region = Rect2(80, 240, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manfk"]
+atlas = ExtResource("2_ms1hb")
+region = Rect2(160, 240, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grbog"]
+atlas = ExtResource("3_63sap")
+region = Rect2(0, 360, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg5id"]
+atlas = ExtResource("3_63sap")
+region = Rect2(80, 360, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3ct0"]
+atlas = ExtResource("3_63sap")
+region = Rect2(160, 360, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s37m2"]
+atlas = ExtResource("3_63sap")
+region = Rect2(0, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2y1a"]
+atlas = ExtResource("3_63sap")
+region = Rect2(80, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uumv"]
+atlas = ExtResource("3_63sap")
+region = Rect2(160, 0, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql6mq"]
+atlas = ExtResource("3_63sap")
+region = Rect2(0, 120, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu580"]
+atlas = ExtResource("3_63sap")
+region = Rect2(80, 120, 80, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7bvm"]
+atlas = ExtResource("3_63sap")
+region = Rect2(160, 120, 80, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbbwv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anyhf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l255e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms4d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_manfk")
+}],
+"loop": true,
+"name": &"walk_e",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grbog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg5id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3ct0")
+}],
+"loop": true,
+"name": &"walk_n",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s37m2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2y1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uumv")
+}],
+"loop": true,
+"name": &"walk_s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql6mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu580")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7bvm")
+}],
+"loop": true,
+"name": &"walk_w",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7swaa"]
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r52l6"]
+radius = 22.36068
+
+[node name="Bobi" type="CharacterBody2D"]
+script = ExtResource("1_lfuft")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -6)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_sbbwv")
+animation = &"walk_w"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7swaa")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+shape = SubResource("CircleShape2D_r52l6")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

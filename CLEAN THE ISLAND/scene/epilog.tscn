@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpmnl4g2xonvu"]
+
+[ext_resource type="Script" uid="uid://b3argusyhgse4" path="res://script/control.gd" id="1_1nyl3"]
+[ext_resource type="Texture2D" uid="uid://bedfainmwoy6w" path="res://assests/collection/chatbox.png" id="2_xaixg"]
+[ext_resource type="FontFile" uid="uid://bebxqioa7akei" path="res://assests/collection/Born2bSportyV10.ttf" id="3_3xjy7"]
+
+[node name="epilog" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1nyl3")
+d_file = "res://dialogue/epilog.json"
+next_scene_path = "uid://y1aq82mbyop7"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(576.00006, 325.25)
+scale = Vector2(4.4960938, 6.734374)
+texture = ExtResource("2_xaixg")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 40.0
+offset_right = 238.0
+offset_bottom = 57.0
+scale = Vector2(3, 3)
+theme_override_fonts/normal_font = ExtResource("3_3xjy7")
+theme_override_fonts/bold_font = ExtResource("3_3xjy7")
+theme_override_fonts/bold_italics_font = ExtResource("3_3xjy7")
+theme_override_fonts/italics_font = ExtResource("3_3xjy7")
+theme_override_fonts/mono_font = ExtResource("3_3xjy7")
+text = "Name
+"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 92.0
+offset_right = 578.0
+offset_bottom = 305.0
+scale = Vector2(2, 2)
+theme_override_fonts/normal_font = ExtResource("3_3xjy7")
+theme_override_fonts/bold_font = ExtResource("3_3xjy7")
+theme_override_fonts/bold_italics_font = ExtResource("3_3xjy7")
+theme_override_fonts/italics_font = ExtResource("3_3xjy7")
+theme_override_fonts/mono_font = ExtResource("3_3xjy7")
+text = "Text
+"
+
+[node name="Lanjut" type="Button" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 546.0
+offset_right = 560.0
+offset_bottom = 605.0
+text = "Lanjut"
+
+[node name="Ke Menu" type="Button" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 585.0
+offset_top = 547.0
+offset_right = 833.0
+offset_bottom = 601.0
+text = "Back to Menu"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="NinePatchRect/Lanjut" to="." method="_on_lanjut_pressed"]
+[connection signal="pressed" from="NinePatchRect/Ke Menu" to="." method="_on_ke_menu_pressed"]
