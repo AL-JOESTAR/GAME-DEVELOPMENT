@@ -11,8 +11,17 @@ https://al-joestar.itch.io/clean-the-island
 
 # Game Overview
 
-Dalam game ini pemain berperan sebagai karakter yang memiliki tugas untuk membersihkan sebuah pulau yang dipenuhi sampah. Pemain harus menjelajahi area pulau dan mengumpulkan sampah yang tersebar dan menyelesaikan quest yang tersedia.
+Dalam game ini pemain berperan sebagai karakter yang memiliki tugas untuk membersihkan sebuah pulau yang dipenuhi sampah. Pemain harus menjelajahi area pulau dan mengumpulkan sampah yang tersebar dan menyelesaikan seluruh quest yang tersedia.
 
 Game ini dibuat dengan tujuan memberikan **edukasi mengenai pentingnya menjaga kebersihan lingkungan** melalui media permainan yang interaktif dan menyenangkan.
 
 ---
+
+# Gameplay
+
+Mekanik utama dalam game ini meliputi:
+
+- Pemain dapat bergerak mengelilingi pulau
+- Mengumpulkan sampah yang tersebar di berbagai area
+- Membersihkan lingkungan pulau
+- Menyelesaikan objective dengan menyelesaikan seluruh quest
