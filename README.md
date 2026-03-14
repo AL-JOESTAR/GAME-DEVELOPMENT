@@ -25,3 +25,13 @@ Mekanik utama dalam game ini meliputi:
 - Mengumpulkan sampah yang tersebar di berbagai area
 - Membersihkan lingkungan pulau
 - Menyelesaikan objective dengan menyelesaikan seluruh quest
+
+---
+
+# Project Purpose
+
+Tujuan dari project ini adalah:
+
+- Mengimplementasikan metode **GDLC** dalam proses pengembangan game
+- Membuat game bertema **edukasi lingkungan**
+- Memberikan pengalaman dalam proses **Game Development**
